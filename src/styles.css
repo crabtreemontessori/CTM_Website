@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --surface-soft: #eef3f8;
+  --surface-strong: #d9e4f0;
+  --text: #20344f;
+  --text-soft: #475b74;
+  --heading: #10233f;
+  --line: rgba(16, 35, 63, 0.11);
+  --primary: #173a67;
+  --primary-strong: #0d2447;
+  --primary-soft: rgba(23, 58, 103, 0.12);
+  --secondary: #5f7fa3;
+  --accent: #7da4bf;
+  --accent-soft: rgba(125, 164, 191, 0.16);
+  --shadow: rgba(13, 36, 71, 0.16);
+  --hero-gradient: linear-gradient(135deg, #0f2747 0%, #173a67 45%, #5f7fa3 100%);
+  --page-gradient: linear-gradient(180deg, #f6f9fc 0%, #edf3f9 100%);
+  --section-alt-gradient: linear-gradient(135deg, #14345d 0%, #29517f 52%, #7695b2 100%);
+  --section-soft-gradient: linear-gradient(135deg, #edf3fa 0%, #dfe8f3 100%);
+  --card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, #f1f6fb 100%);
+  --card-feature-gradient: linear-gradient(180deg, #f8fbff 0%, #eef4fa 100%);
+  --cta-gradient: linear-gradient(135deg, #102645 0%, #1c426f 55%, #5d7ca0 100%);
+  --image-overlay: linear-gradient(180deg, rgba(16, 38, 69, 0.18) 0%, rgba(16, 38, 69, 0.44) 100%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+  background:
+    radial-gradient(circle at 10% 8%, color-mix(in srgb, var(--accent-soft) 78%, white 22%), transparent 0 18%),
+    radial-gradient(circle at 88% 14%, color-mix(in srgb, var(--primary-soft) 88%, white 12%), transparent 0 22%),
+    var(--page-gradient);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: var(--primary-soft);
+}
+
+.site-shell {
+  min-height: 100vh;
+  position: relative;
+  overflow: clip;
+}
+
+.site-shell::before,
+.site-shell::after {
+  content: '';
+  position: fixed;
+  z-index: -1;
+  border-radius: 999px;
+  filter: blur(72px);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.site-shell::before {
+  top: 8rem;
+  left: -8rem;
+  width: 22rem;
+  height: 22rem;
+  background: color-mix(in srgb, var(--accent-soft) 88%, white 12%);
+}
+
+.site-shell::after {
+  top: 22rem;
+  right: -7rem;
+  width: 24rem;
+  height: 24rem;
+  background: color-mix(in srgb, var(--primary-soft) 92%, white 8%);
+}
+
+.section-shell {
+  position: relative;
+}
+
+.section-shell-deep::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(255, 255, 255, 0.12), transparent 0 18%),
+    radial-gradient(circle at 82% 68%, color-mix(in srgb, var(--accent-soft) 72%, white 28%), transparent 0 22%);
+  pointer-events: none;
+}
+
+.section-shell-soft::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--primary-soft) 78%, white 22%), transparent 0 18%),
+    radial-gradient(circle at 16% 74%, color-mix(in srgb, var(--accent-soft) 56%, white 44%), transparent 0 16%);
+  pointer-events: none;
+}
+
+.section-card {
+  background: var(--card-gradient);
+  border: 1px solid color-mix(in srgb, var(--primary) 18%, white 82%);
+  box-shadow: 0 22px 50px -30px var(--shadow);
+  position: relative;
+  z-index: 1;
+}
+
+.section-card-deep {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  box-shadow: 0 28px 60px -34px rgba(7, 18, 34, 0.35);
+  backdrop-filter: blur(18px);
+}
+
+.section-eyebrow {
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.section-eyebrow-inverse {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.hero-media-frame {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 28px 60px -34px rgba(7, 18, 34, 0.38);
+  backdrop-filter: blur(18px);
+}
+
+.hero-media-placeholder {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.14), transparent 0 28%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+}
+
+.info-card {
+  background: var(--card-gradient);
+  border: 1px solid color-mix(in srgb, var(--primary) 24%, white 76%);
+  border-top: 4px solid var(--primary);
+  box-shadow: 0 18px 40px -28px var(--shadow);
+}
+
+.info-card-tinted {
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--primary-soft) 50%, white 50%) 0%,
+      color-mix(in srgb, var(--accent-soft) 36%, white 64%) 100%
+    );
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, white 70%);
+  border-top: 4px solid var(--primary);
+  box-shadow: 0 18px 40px -28px var(--shadow);
+}
+
+.feature-card {
+  background: var(--card-feature-gradient);
+  border: 1px solid color-mix(in srgb, var(--primary) 22%, white 78%);
+  border-left: 4px solid var(--accent);
+  align-items: center;
+}
+
+.feature-card-white {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, #f9fbfe 100%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 4px solid color-mix(in srgb, var(--accent) 72%, white 28%);
+  align-items: center;
+}
+
+.qualification-card {
+  background: var(--card-gradient);
+  border: 1px solid color-mix(in srgb, var(--primary) 24%, white 76%);
+  border-left: 4px solid var(--primary);
+}
+
+.video-shell {
+  background:
+    radial-gradient(circle at 18% 28%, color-mix(in srgb, var(--accent-soft) 70%, white 30%), transparent 0 20%),
+    radial-gradient(circle at 78% 70%, color-mix(in srgb, var(--primary-soft) 82%, white 18%), transparent 0 24%),
+    var(--section-soft-gradient);
+}
+
+.cta-panel {
+  background: var(--cta-gradient);
+  box-shadow: 0 28px 60px -32px var(--shadow);
+}
+
+.contact-card {
+  background: var(--card-gradient);
+  border: 1px solid color-mix(in srgb, var(--primary) 24%, white 76%);
+  border-top: 4px solid var(--accent);
+  box-shadow: 0 18px 40px -28px var(--shadow);
+}
