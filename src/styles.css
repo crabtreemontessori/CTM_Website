@@ -4,29 +4,29 @@
 
 :root {
   color-scheme: light;
-  --bg: #f4f7fb;
-  --surface: #ffffff;
-  --surface-soft: #eef3f8;
-  --surface-strong: #d9e4f0;
-  --text: #20344f;
-  --text-soft: #475b74;
-  --heading: #10233f;
-  --line: rgba(16, 35, 63, 0.11);
-  --primary: #173a67;
-  --primary-strong: #0d2447;
-  --primary-soft: rgba(23, 58, 103, 0.12);
-  --secondary: #5f7fa3;
-  --accent: #7da4bf;
-  --accent-soft: rgba(125, 164, 191, 0.16);
-  --shadow: rgba(13, 36, 71, 0.16);
-  --hero-gradient: linear-gradient(135deg, #0f2747 0%, #173a67 45%, #5f7fa3 100%);
-  --page-gradient: linear-gradient(180deg, #f6f9fc 0%, #edf3f9 100%);
-  --section-alt-gradient: linear-gradient(135deg, #14345d 0%, #29517f 52%, #7695b2 100%);
-  --section-soft-gradient: linear-gradient(135deg, #edf3fa 0%, #dfe8f3 100%);
-  --card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, #f1f6fb 100%);
-  --card-feature-gradient: linear-gradient(180deg, #f8fbff 0%, #eef4fa 100%);
-  --cta-gradient: linear-gradient(135deg, #102645 0%, #1c426f 55%, #5d7ca0 100%);
-  --image-overlay: linear-gradient(180deg, rgba(16, 38, 69, 0.18) 0%, rgba(16, 38, 69, 0.44) 100%);
+  --bg: #faf6ef;
+  --surface: #fffdf9;
+  --surface-soft: #f6efe6;
+  --surface-strong: #eadfce;
+  --text: #2a3648;
+  --text-soft: #5f635f;
+  --heading: #182842;
+  --line: rgba(24, 40, 66, 0.10);
+  --primary: #21426d;
+  --primary-strong: #142c4e;
+  --primary-soft: rgba(33, 66, 109, 0.11);
+  --secondary: #8d9bb0;
+  --accent: #a8bfd0;
+  --accent-soft: rgba(168, 191, 208, 0.16);
+  --shadow: rgba(20, 44, 78, 0.15);
+  --hero-gradient: linear-gradient(135deg, #142c4e 0%, #21426d 46%, #8d9bb0 100%);
+  --page-gradient: linear-gradient(180deg, #fdfaf4 0%, #f5efe6 100%);
+  --section-alt-gradient: linear-gradient(135deg, #173153 0%, #32557f 50%, #95a6ba 100%);
+  --section-soft-gradient: linear-gradient(135deg, #f8f1e8 0%, #ece4d9 100%);
+  --card-gradient: linear-gradient(180deg, rgba(255, 253, 249, 0.98) 0%, #f6efe7 100%);
+  --card-feature-gradient: linear-gradient(180deg, #fffaf4 0%, #f4ede4 100%);
+  --cta-gradient: linear-gradient(135deg, #173153 0%, #2b4d78 56%, #8a99ad 100%);
+  --image-overlay: linear-gradient(180deg, rgba(23, 49, 83, 0.16) 0%, rgba(23, 49, 83, 0.42) 100%);
 }
 
 html {
@@ -128,6 +128,12 @@ button {
   backdrop-filter: blur(18px);
 }
 
+.quick-facts-panel {
+  background: var(--bg);
+  border: 1px solid color-mix(in srgb, var(--primary) 10%, var(--surface) 90%);
+  box-shadow: 0 28px 60px -34px var(--shadow);
+}
+
 .section-eyebrow {
   color: var(--primary);
   font-size: 0.78rem;
@@ -165,8 +171,8 @@ button {
   background:
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--primary-soft) 50%, white 50%) 0%,
-      color-mix(in srgb, var(--accent-soft) 36%, white 64%) 100%
+      color-mix(in srgb, var(--bg) 88%, var(--surface-strong) 12%) 0%,
+      color-mix(in srgb, var(--bg) 82%, var(--surface-strong) 18%) 100%
     );
   border: 1px solid color-mix(in srgb, var(--primary) 30%, white 70%);
   border-top: 4px solid var(--primary);
