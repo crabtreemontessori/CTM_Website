@@ -1,16 +1,17 @@
+import { useEffect, useState } from 'react';
+
 const navItems = [
   { label: 'Program', href: '#about' },
   { label: 'Highlights', href: '#includes' },
   { label: 'Teacher', href: '#teacher' },
-  { label: 'Video', href: '#video' },
   { label: 'Contact', href: '#contact' },
 ];
 
 const quickFacts = [
   { label: 'Tuition', value: '$230', detail: 'per month' },
-  { label: 'Schedule', value: 'Mon-Fri', detail: '9:00 AM-12:00 PM' },
+  { label: 'Schedule', value: 'Mon-Fri 9:00-12:00', detail: 'Flexible days' },
   { label: 'Ages', value: '2.5-6', detail: 'years old' },
-  { label: 'Opening', value: 'September 2026', detail: 'First intake' },
+  { label: 'Opening', value: 'September 2026', detail: 'Accepting enrolments' },
   { label: 'Support', value: 'Grants available', detail: 'Subsidies supported' },
   { label: 'Class Size', value: '6 children', detail: 'Maximum enrolment' },
 ];
@@ -38,10 +39,45 @@ const teacherQualifications = [
   '6 years teaching Kindergarten to Grade 2',
   '3+ years of Pre-K experience',
   'First Aid Certified, Level 3',
-  'Police Check completed',
+];
+
+const classroomImages = [
+  {
+    src: '/space1.png',
+    alt: 'Montessori classroom space with child-sized tables and learning materials',
+    className: 'sm:col-span-2',
+    imageClassName: 'aspect-[16/9]',
+  },
+  {
+    src: '/space2.jpg',
+    alt: 'Montessori shelves with learning materials arranged for children',
+    className: '',
+    imageClassName: 'aspect-[4/3]',
+  },
+  {
+    src: '/space3.jpg',
+    alt: 'Prepared classroom materials for hands-on preschool learning',
+    className: '',
+    imageClassName: 'aspect-[4/3]',
+  },
 ];
 
 function App() {
+  const [selectedImage, setSelectedImage] = useState<(typeof classroomImages)[number] | null>(null);
+
+  useEffect(() => {
+    if (!selectedImage) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedImage(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage]);
+
   return (
     <div className="site-shell text-[color:var(--text)]">
       <header className="sticky top-0 z-40 border-b border-[color:var(--line)] bg-[color:var(--surface)] shadow-[0_10px_30px_-22px_var(--shadow)]">
@@ -80,6 +116,14 @@ function App() {
             >
               Email Lexi
             </a>
+            <a
+              href="https://www.instagram.com/crabtreeinsta?igsh=MW9scHYzb3g3bGVuNw=="
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-[color:var(--line)] bg-[color:var(--surface-soft)] px-4 py-2 text-sm font-semibold text-[color:var(--primary)] transition-colors duration-200 hover:text-[color:var(--primary-strong)]"
+            >
+              Instagram
+            </a>
           </div>
         </div>
       </header>
@@ -98,7 +142,7 @@ function App() {
                 Montessori preschool ages 2.5-6
               </span>
               <h1 className="mt-6 max-w-2xl font-display text-4xl leading-tight text-white sm:text-5xl lg:text-6xl">
-                A Hidden Gem Montessori Preschool with a Small Class Size of 6
+                A "Hidden Gem" Montessori Preschool with a Small Class Size of 6
               </h1>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -121,6 +165,14 @@ function App() {
                   className="rounded-full border border-white/20 bg-white/14 px-4 py-2 backdrop-blur transition-colors duration-200 hover:bg-white/20"
                 >
                   crabtreemontessori@gmail.com
+                </a>
+                <a
+                  href="https://www.instagram.com/crabtreeinsta?igsh=MW9scHYzb3g3bGVuNw=="
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-white/20 bg-white/14 px-4 py-2 backdrop-blur transition-colors duration-200 hover:bg-white/20"
+                >
+                  Instagram
                 </a>
               </div>
             </div>
@@ -290,14 +342,15 @@ function App() {
               <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
                 <div className="max-w-xl pt-2 text-[color:var(--surface)] lg:pt-10">
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--surface)]">
-                    Introduction Video
+                    Prepared Environment
                   </p>
                   <h2 className="mt-4 font-display text-4xl leading-tight text-[color:var(--surface)] sm:text-5xl">
                     Take a little tour of Crabtree Montessori
                   </h2>
                   <div className="mt-5 h-1.5 w-20 rounded-full bg-[color:var(--surface)]/70" />
                   <p className="mt-6 text-xl leading-9 text-[color:var(--surface)]">
-                    A quick look inside the space where children will learn, play, and grow.
+                    A carefully crafted space where materials are designed for each learner.
+                    Materials rotate and change based upon learners needs and interests.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-3">
                     {['Classroom space', 'Montessori shelves', 'Prepared environment'].map((item) => (
@@ -311,16 +364,22 @@ function App() {
                   </div>
                 </div>
 
-                <div className="justify-self-center rounded-[1.75rem] border border-white/24 bg-white/12 p-4 shadow-[0_24px_60px_-34px_rgba(7,18,34,0.55)] sm:p-5">
-                  <div className="video-shell relative aspect-[9/16] w-full max-w-md overflow-hidden rounded-[1.5rem] border border-white/24">
-                    <video
-                      src="/tour.mp4"
-                      controls
-                      preload="metadata"
-                      className="h-full w-full bg-black object-contain"
-                      aria-label="A little tour of Crabtree Montessori"
-                    />
-                  </div>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {classroomImages.map((image) => (
+                    <button
+                      key={image.src}
+                      type="button"
+                      onClick={() => setSelectedImage(image)}
+                      className={`group overflow-hidden rounded-[1.5rem] border border-white/24 text-left focus:outline-none focus:ring-4 focus:ring-white/45 ${image.className}`}
+                      aria-label={`Open larger view: ${image.alt}`}
+                    >
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className={`${image.imageClassName} w-full object-cover transition-transform duration-300 group-hover:scale-105`}
+                      />
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>
@@ -358,6 +417,14 @@ function App() {
                 >
                   crabtreemontessori@gmail.com
                 </a>
+                <a
+                  href="https://www.instagram.com/crabtreeinsta?igsh=MW9scHYzb3g3bGVuNw=="
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-full border border-white/24 bg-white/8 px-6 py-3 font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/12"
+                >
+                  Instagram
+                </a>
               </div>
             </div>
           </div>
@@ -377,11 +444,44 @@ function App() {
             >
               crabtreemontessori@gmail.com
             </a>
+            <a
+              href="https://www.instagram.com/crabtreeinsta?igsh=MW9scHYzb3g3bGVuNw=="
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-[color:var(--primary)]"
+            >
+              Instagram
+            </a>
           </div>
         </div>
       </footer>
 
       <div className="pointer-events-none fixed inset-x-0 bottom-0 h-24 bg-[linear-gradient(180deg,transparent,rgba(255,255,255,0.35))]" />
+
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/82 px-4 py-6 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Expanded classroom photo"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-h-full w-full max-w-5xl" onClick={(event) => event.stopPropagation()}>
+            <button
+              type="button"
+              onClick={() => setSelectedImage(null)}
+              className="absolute right-3 top-3 z-10 rounded bg-white px-3 py-2 text-sm font-semibold text-[color:var(--primary-strong)] shadow-card transition-colors duration-200 hover:bg-[color:var(--surface-soft)] focus:outline-none focus:ring-4 focus:ring-white/45"
+            >
+              Close
+            </button>
+            <img
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              className="max-h-[86vh] w-full rounded-[1.5rem] object-contain shadow-[0_30px_80px_-24px_rgba(0,0,0,0.7)]"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
