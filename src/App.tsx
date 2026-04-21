@@ -178,14 +178,20 @@ function App() {
             </div>
 
             <div className="relative z-10">
-              <div className="hero-media-frame rounded-[2rem] p-4 sm:p-6">
-                <div className="relative aspect-[5/4] overflow-hidden rounded-[1.6rem] border border-white/18">
-                  <img
-                    src="/hero.png"
-                    alt="Miss Lexi guiding a child during a classroom activity"
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0" style={{ backgroundImage: 'var(--image-overlay)' }} />
+              <div className="hero-media-frame mx-auto w-full max-w-[24rem] rounded-[2rem] p-4 sm:p-6">
+                <div
+                  className="overflow-hidden rounded-[1.6rem] border border-white/18 bg-black"
+                  style={{ aspectRatio: '9 / 16' }}
+                >
+                  <video
+                    src="/tour.mp4"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="block h-full w-full object-contain"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </div>
             </div>
