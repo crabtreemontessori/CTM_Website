@@ -246,6 +246,59 @@ function App() {
         </section>
 
         <section
+          id="location"
+          className="section-shell section-shell-deep"
+          style={{ backgroundImage: 'var(--section-alt-gradient)' }}
+        >
+          <div className="mx-auto grid max-w-7xl gap-8 px-4 py-20 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8">
+            <div className="section-card rounded-[2rem] p-8">
+              <h2 className="font-display text-3xl text-[color:var(--heading)]">Location</h2>
+              <p className="mt-4 max-w-xl text-base leading-8 text-[color:var(--text-soft)]">
+                Crabtree Montessori is based in Airdrie and welcomes families who want to
+                visit the preschool setting in person before enrolment.
+              </p>
+
+              <div className="location-note mt-8 rounded-[1.5rem] p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--primary)]">
+                  Preschool Address
+                </p>
+                <p className="mt-3 font-display text-2xl text-[color:var(--heading)]">
+                  63 Ravenswynd Rise SE
+                </p>
+                <p className="mt-1 text-base text-[color:var(--text-soft)]">
+                  Airdrie, Alberta T4A 0K1
+                </p>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="https://www.google.com/maps?q=63+Ravenswynd+Rise+SE,+Airdrie,+AB+T4A+0K1"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-full bg-[color:var(--primary)] px-5 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[color:var(--primary-strong)]"
+                >
+                  View Larger Map
+                </a>
+              </div>
+            </div>
+
+            <div className="section-card flex rounded-[2rem] p-5 sm:p-6">
+              <div className="map-frame overflow-hidden rounded-[1.5rem] border border-[color:var(--line)] bg-[color:var(--surface)]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d624.0688679306409!2d-113.97448663028463!3d51.26924819823502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53715f898c1a9b89%3A0x75c67eee735604c8!2s63%20Ravenswynd%20Rise%20SE%2C%20Airdrie%2C%20AB%20T4A%200K1!5e0!3m2!1sen!2sca!4v1776737112235!5m2!1sen!2sca"
+                  title="Map showing Crabtree Montessori preschool location"
+                  className="map-embed"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
           id="about"
           className="section-shell section-shell-soft"
           style={{ backgroundImage: 'var(--section-soft-gradient)' }}
